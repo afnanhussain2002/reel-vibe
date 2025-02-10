@@ -32,4 +32,6 @@ export async function dbConnect() {
         cached.promise = null;
         throw error;
     }
+
+    return cached.conn;
 }
