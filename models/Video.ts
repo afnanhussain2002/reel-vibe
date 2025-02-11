@@ -17,4 +17,6 @@ export const VIDEO_DIMENSIONS = {
       width: number;
       quality?: number;
     };
+    createdAt?: Date;
+    updatedAt?: Date;
   }
