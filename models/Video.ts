@@ -36,3 +36,5 @@ export const VIDEO_DIMENSIONS = {
     },
     { timestamps: true }
   );
+
+  const Video = models?.Video || model<IVideo>("Video", videoSchema);
