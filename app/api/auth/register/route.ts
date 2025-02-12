@@ -1,4 +1,5 @@
 import { dbConnect } from "@/lib/db";
+import User from "@/models/User";
 import { NextRequest, NextResponse } from "next/server";
 
 
@@ -11,6 +12,12 @@ export async function POST(request: NextRequest) {
 
     try {
         await dbConnect();
+        const existingUser = await User.findOne({email});
+
+        if (existingUser) {
+            return NextResponse.json({error: "User already exists"}, {status: 400});
+        }
+        
 
     } catch (error) {
         
