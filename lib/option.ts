@@ -1,4 +1,5 @@
 import { NextAuthOptions } from "next-auth";
+import { dbConnect } from "./db";
 
 export const authOptions: NextAuthOptions = {
    providers: [
@@ -14,7 +15,7 @@ export const authOptions: NextAuthOptions = {
             }
 
             try {
-                
+                await dbConnect();
             } catch (error) {
                 
             }
