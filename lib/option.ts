@@ -1,6 +1,7 @@
 import { NextAuthOptions } from "next-auth";
 import { dbConnect } from "./db";
 import User from "@/models/User";
+import bcrypt from "bcryptjs";
 
 export const authOptions: NextAuthOptions = {
    providers: [
@@ -23,6 +24,12 @@ export const authOptions: NextAuthOptions = {
                 if (!user) {
                     throw new Error("No user found with this email");
                 }
+
+
+                const isValid = await bcrypt.compare(
+                    credentials.password,
+                    user.password
+                  );
 
             } catch (error) {
                 throw error
