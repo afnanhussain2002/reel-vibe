@@ -16,8 +16,9 @@ export const authOptions: NextAuthOptions = {
 
             try {
                 await dbConnect();
+
             } catch (error) {
-                
+                throw error
             }
         }
        })
