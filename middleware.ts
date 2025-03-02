@@ -17,6 +17,11 @@ export default withAuth(
           ) {
             return true
           }
+
+            // Public routes
+        if (pathname === "/" || pathname.startsWith("/api/videos")) {
+            return true;
+          }
         }
       }
     }
