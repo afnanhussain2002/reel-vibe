@@ -7,7 +7,17 @@ export default withAuth(
     },
     {
       callbacks:{
-        
+        authorized: ({token, req}) => {
+          const {pathname} = req.nextUrl;
+
+          if (
+            pathname.startsWith("/api/auth") ||
+            pathname === "/login" ||
+            pathname === "/register"
+          ) {
+            return true
+          }
+        }
       }
     }
 )
