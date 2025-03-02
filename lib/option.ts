@@ -31,6 +31,10 @@ export const authOptions: NextAuthOptions = {
                     user.password
                   );
 
+                  if (!isValid) {
+                    throw new Error("Invalid password");
+                  }
+
             } catch (error) {
                 throw error
             }
