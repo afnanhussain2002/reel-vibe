@@ -1,5 +1,6 @@
 import { NextAuthOptions } from "next-auth";
 import { dbConnect } from "./db";
+import User from "@/models/User";
 
 export const authOptions: NextAuthOptions = {
    providers: [
@@ -16,6 +17,10 @@ export const authOptions: NextAuthOptions = {
 
             try {
                 await dbConnect();
+
+                const user = await User.findOne({ email: credentials.email });
+
+                
 
             } catch (error) {
                 throw error
