@@ -7,7 +7,7 @@ const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
 
 const authenticator = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/imagekit-auth");
+      const response = await fetch("/api/imagekit-auth");
   
       if (!response.ok) {
         const errorText = await response.text();
