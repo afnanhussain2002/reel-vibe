@@ -23,7 +23,7 @@ const authenticator = async () => {
     }
   };
   
-  export default function Home() {
+  export default function Providers() {
     return (
    <SessionProvider>
        <ImageKitProvider urlEndpoint={urlEndpoint} publicKey={publicKey} authenticator={authenticator}>
