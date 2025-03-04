@@ -7,7 +7,7 @@ const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
 
 const authenticator = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/auth");
+      const response = await fetch("http://localhost:3000/api/imagekit-auth");
   
       if (!response.ok) {
         const errorText = await response.text();
@@ -24,12 +24,14 @@ const authenticator = async () => {
   
   export default function Home() {
     return (
-      <div className="App">
-        <ImageKitProvider urlEndpoint={urlEndpoint} publicKey={publicKey} authenticator={authenticator}>
-          {/* ...client side upload component goes here */}
-        </ImageKitProvider>
-        {/* ...other SDK components added previously */}
-      </div>
+   <SessionProvider>
+       <ImageKitProvider urlEndpoint={urlEndpoint} publicKey={publicKey} authenticator={authenticator}>
+         {/* ...client side upload component goes here */}
+       </ImageKitProvider>
+       {/* ...other SDK components added previously */}
+
+   </SessionProvider>
+  
     );
   }
 
