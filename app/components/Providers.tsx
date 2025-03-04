@@ -23,7 +23,7 @@ const authenticator = async () => {
     }
   };
   
-  export default function Providers() {
+  export default function Providers({children}:{children: React.ReactNode}) {
     return (
    <SessionProvider>
        <ImageKitProvider urlEndpoint={urlEndpoint} publicKey={publicKey} authenticator={authenticator}>
