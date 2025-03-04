@@ -18,7 +18,8 @@ const authenticator = async () => {
       const { signature, expire, token } = data;
       return { signature, expire, token };
     } catch (error) {
-      throw new Error(`Authentication request failed: ${error.message}`);
+      console.error("ImageKit authentication error:", error);
+      throw new Error(`Authentication request failed: ${error}`);
     }
   };
   
