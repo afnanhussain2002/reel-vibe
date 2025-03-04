@@ -27,9 +27,9 @@ const authenticator = async () => {
     return (
    <SessionProvider>
        <ImageKitProvider urlEndpoint={urlEndpoint} publicKey={publicKey} authenticator={authenticator}>
-         {/* ...client side upload component goes here */}
+           {children}
        </ImageKitProvider>
-       {/* ...other SDK components added previously */}
+      
 
    </SessionProvider>
   
