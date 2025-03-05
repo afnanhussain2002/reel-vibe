@@ -76,7 +76,7 @@ export default function FileUpload({
     <div className="space-y-2">
      
         <IKUpload
-          fileName="test-upload.jpg"
+          fileName={fileType === "image" ? "image" : "video"}
           tags={["sample-tag1", "sample-tag2"]}
           customCoordinates={"10,10,10,10"}
           isPrivateFile={false}
