@@ -59,6 +59,12 @@ export default function FileUpload({
           setError("Please select a file less than 100MB");
           return false
       }
+    }else{
+        const validTypes = ["image/png", "image/jpeg", "image/webp"];
+        if (!validTypes.includes(file.type)) {
+            setError("Please select a valid image file(png, jpeg, webp)");
+            return false
+        }
     }
   }
 
