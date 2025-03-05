@@ -55,10 +55,10 @@ export default function FileUpload({
         setError("Please select a video file");
         return false
       }
-    }
-    if (file.size > 100 * 1024 * 1024) {
-        setError("Please select a file less than 100MB");
-        return false;
+      if (file.size > 100 * 1024 * 1024) {
+          setError("Please select a file less than 100MB");
+          return false
+      }
     }
   }
 
