@@ -14,21 +14,6 @@ const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
 const urlEndpoint = process.env.NEXT_PUBLIC_URL_ENDPOINT;
 
 
-const onError = (err) => {
-  console.log("Error", err);
-};
-
-const onSuccess = (res) => {
-  console.log("Success", res);
-};
-
-const onUploadProgress = (progress) => {
-  console.log("Progress", progress);
-};
-
-const onUploadStart = (evt) => {
-  console.log("Start", evt);
-};
 
 export default function FileUpload({
   onSuccess,
@@ -36,6 +21,24 @@ export default function FileUpload({
   fileType = "image",
 }: FileUploadProps) {
   const ikUploadRefTest = useRef(null);
+
+
+  const onError = (err) => {
+    console.log("Error", err);
+  };
+  
+  const onSuccess = (res) => {
+    console.log("Success", res);
+  };
+  
+  const onUploadProgress = (progress) => {
+    console.log("Progress", progress);
+  };
+  
+  const onUploadStart = (evt) => {
+    console.log("Start", evt);
+  };
+
   return (
     <div className="App">
       <h1>ImageKit Next.js quick start</h1>
