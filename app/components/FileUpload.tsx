@@ -30,7 +30,11 @@ const onUploadStart = (evt) => {
   console.log("Start", evt);
 };
 
-export default function FileUpload() {
+export default function FileUpload({
+  onSuccess,
+  onProgress,
+  fileType = "image",
+}: FileUploadProps) {
   const ikUploadRefTest = useRef(null);
   return (
     <div className="App">
