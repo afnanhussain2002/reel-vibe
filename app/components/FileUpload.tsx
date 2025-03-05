@@ -30,12 +30,11 @@ const onUploadStart = (evt) => {
   console.log("Start", evt);
 };
 
-export default function Home() {
+export default function FileUpload() {
   const ikUploadRefTest = useRef(null);
   return (
     <div className="App">
       <h1>ImageKit Next.js quick start</h1>
-      <ImageKitProvider publicKey={publicKey} urlEndpoint={urlEndpoint} authenticator={authenticator}>
         <p>Upload an image with advanced options</p>
         <IKUpload
           fileName="test-upload.jpg"
@@ -83,7 +82,7 @@ export default function Home() {
         {ikUploadRefTest && <button onClick={() => ikUploadRefTest.current.click()}>Upload</button>}
         <p>Abort upload request</p>
         {ikUploadRefTest && <button onClick={() => ikUploadRefTest.current.abort()}>Abort request</button>}
-      </ImageKitProvider>
+     
       {/* ...other SDK components added previously */}
     </div>
   );
