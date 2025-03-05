@@ -65,6 +65,10 @@ export default function FileUpload({
             setError("Please select a valid image file(png, jpeg, webp)");
             return false
         }
+        if (file.size > 5 * 1024 * 1024) {
+            setError("Please select a Image less than 5MB");
+            return false
+        }
     }
   }
 
