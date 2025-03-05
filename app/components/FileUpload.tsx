@@ -56,6 +56,10 @@ export default function FileUpload({
         return false
       }
     }
+    if (file.size > 100 * 1024 * 1024) {
+        setError("Please select a file less than 100MB");
+        return false;
+    }
   }
 
   return (
