@@ -4,6 +4,7 @@ import { ImageKitProvider, IKImage, IKUpload } from "imagekitio-next";
 import { Loader2 } from "lucide-react";
 import { IKUploadResponse } from "imagekitio-next/dist/types/components/IKUpload/props";
 
+
 interface FileUploadProps {
     onSuccess: (res: IKUploadResponse) => void;
     onProgress: (progress: number) => void;
@@ -40,6 +41,8 @@ export default function FileUpload({
   
   const handleUploadProgress = (progress) => {
     console.log("Progress", progress);
+    setUploading(true);
+    setError(null);
   };
   
   const handleUploadStart = (evt: ProgressEvent) => {
