@@ -38,11 +38,11 @@ export default function FileUpload({
     onSuccess(res);
   };
   
-  const onUploadProgress = (progress) => {
+  const handleUploadProgress = (progress) => {
     console.log("Progress", progress);
   };
   
-  const onUploadStart = (evt) => {
+  const handleUploadStart = (evt: ProgressEvent) => {
     console.log("Start", evt);
   };
 
