@@ -39,13 +39,15 @@ export default function FileUpload({
     onSuccess(res);
   };
   
-  const handleUploadProgress = (progress) => {
-    console.log("Progress", progress);
+  const handleUploadProgress = (evt:ProgressEvent) => {
     
+    if (evt.lengthComputable && onProgress) {
+        const percentComplete = (evt.loaded / evt.total) * 100;
+        onProgress(Math.round(percentComplete));
+    }
   };
   
-  const handleUploadStart = (evt: ProgressEvent) => {
-    console.log("Start", evt);
+  const handleUploadStart = () => {
     setUploading(true);
     setError(null);
   };
