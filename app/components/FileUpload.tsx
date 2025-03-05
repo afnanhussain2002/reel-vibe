@@ -41,12 +41,13 @@ export default function FileUpload({
   
   const handleUploadProgress = (progress) => {
     console.log("Progress", progress);
-    setUploading(true);
-    setError(null);
+    
   };
   
   const handleUploadStart = (evt: ProgressEvent) => {
     console.log("Start", evt);
+    setUploading(true);
+    setError(null);
   };
 
   const validateFile = (file : File) => {
@@ -77,34 +78,12 @@ export default function FileUpload({
      
         <IKUpload
           fileName={fileType === "image" ? "image" : "video"}
-          tags={["sample-tag1", "sample-tag2"]}
-          customCoordinates={"10,10,10,10"}
-          isPrivateFile={false}
           useUniqueFileName={true}
-          responseFields={["tags"]}
-          validateFile={(file) => file.size < 2000000}
-          folder={"/sample-folder"}
-          {/* extensions={[
-            {
-              name: "remove-bg",
-              options: {
-                add_shadow: true,
-              },
-            },
-          ]} */}
-          webhookUrl="https://www.example.com/imagekit-webhook" // replace with your webhookUrl
-          overwriteFile={true}
-          overwriteAITags={true}
-          overwriteTags={true}
-          overwriteCustomMetadata={true}
-          {/* customMetadata={{
-            "brand": "Nike",
-            "color": "red",
-          }} */}
+          validateFile={validateFile}
           onError={onError}
-          onSuccess={onSuccess}
-          onUploadProgress={onUploadProgress}
-          onUploadStart={onUploadStart}
+          onSuccess={handleSuccess}
+          onUploadProgress={handleUploadProgress}
+          onUploadStart={handleUploadStart}
           transformation={{
             pre: "l-text,i-Imagekit,fs-50,l-end",
             post: [
