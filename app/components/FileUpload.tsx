@@ -49,6 +49,15 @@ export default function FileUpload({
     console.log("Start", evt);
   };
 
+  const validateFile = (file : File) => {
+    if (fileType === "video") {
+      if (!file.type.startsWith("video/")) {
+        setError("Please select a video file");
+        return false
+      }
+    }
+  }
+
   return (
     <div className="App">
       <h1>ImageKit Next.js quick start</h1>
