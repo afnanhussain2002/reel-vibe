@@ -33,6 +33,18 @@ export async function POST(request: NextRequest) {
 
         const body:IVideo = await request.json();
 
+        if (
+            !body.title ||
+            !body.description ||
+            !body.videoUrl ||
+            !body.thumbnailUrl
+          ) {
+            return NextResponse.json(
+              { error: "Missing required fields" },
+              { status: 400 }
+            );
+          }
+
         
     } catch (error) {
         return NextResponse.json({error: error}, {status: 500});
