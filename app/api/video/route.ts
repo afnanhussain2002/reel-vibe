@@ -1,9 +1,9 @@
 import { dbConnect } from "@/lib/db";
 import Video from "@/models/Video";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 
-export async function GET(request: Request) {
+export async function GET() {
       try {
         await dbConnect();
         const videos = await Video.find({}).sort({ createdAt: -1 }).lean();
@@ -18,6 +18,6 @@ export async function GET(request: Request) {
       }
 }
 
-export async function POST(request: Request) {
-    
+export async function POST(request: NextRequest) {
+
 }
