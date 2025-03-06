@@ -1,5 +1,7 @@
 import { dbConnect } from "@/lib/db";
+import { authOptions } from "@/lib/option";
 import Video from "@/models/Video";
+import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 
 
@@ -19,5 +21,5 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
-
+    const session = await getServerSession(authOptions);
 }
