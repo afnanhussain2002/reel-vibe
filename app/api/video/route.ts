@@ -30,7 +30,8 @@ export async function POST(request: NextRequest) {
     try {
 
         await dbConnect();
-        
+
+        const body = await request.json();
         
     } catch (error) {
         return NextResponse.json({error: error}, {status: 500});
