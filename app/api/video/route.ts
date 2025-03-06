@@ -28,6 +28,9 @@ export async function POST(request: NextRequest) {
     }
 
     try {
+
+        await dbConnect();
+        
         
     } catch (error) {
         return NextResponse.json({error: error}, {status: 500});
