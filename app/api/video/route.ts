@@ -45,6 +45,16 @@ export async function POST(request: NextRequest) {
             );
           }
 
+          const videoData = {
+            ...body,
+            controls: body.controls ?? true,
+            transformation: {
+              height: 1920,
+              width: 1080,
+              quality: body.transformation?.quality ?? 100,
+            },
+          };
+
         
     } catch (error) {
         return NextResponse.json({error: error}, {status: 500});
