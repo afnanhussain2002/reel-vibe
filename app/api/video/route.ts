@@ -1,6 +1,6 @@
 import { dbConnect } from "@/lib/db";
 import { authOptions } from "@/lib/option";
-import Video from "@/models/Video";
+import Video, { IVideo } from "@/models/Video";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -31,7 +31,8 @@ export async function POST(request: NextRequest) {
 
         await dbConnect();
 
-        const body = await request.json();
+        const body:IVideo = await request.json();
+
         
     } catch (error) {
         return NextResponse.json({error: error}, {status: 500});
