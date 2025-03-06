@@ -6,7 +6,11 @@ import { NextResponse } from "next/server";
 export async function GET(request: Request) {
       try {
         await dbConnect();
-        const videos = await Video.find();
+        const videos = await Video.find({}).sort({ createdAt: -1 }).lean();
+        if (!videos || videos.length === 0) {
+            return NextResponse.json({error: "No videos found"}, {status: 404});
+        }
+        
       } catch (error) {
         return NextResponse.json({error: error}, {status: 500});
       }
