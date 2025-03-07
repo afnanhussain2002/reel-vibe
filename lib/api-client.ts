@@ -9,6 +9,6 @@ class ApiClient {
         endpoint: string,
         options: FetchOptions = {}
     )Promise<T> {
-   
+      const {method = "GET", body, headers = {}} = options;
     }
 }
