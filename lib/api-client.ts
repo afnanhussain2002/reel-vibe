@@ -36,4 +36,11 @@ class ApiClient {
     async getSingleVideo(id: string) {
         return this.fetch<IVideo>(`/video/${id}`);
     }
+
+    async createVideo(videoData: VideoFormData) {
+        return this.fetch<IVideo>("/videos", {
+            method: "POST",
+            body: videoData,
+        });
+    }
 }
