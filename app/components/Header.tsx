@@ -1,15 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
-import { useSession } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
 
 const Header = () => {
     const {data: session} = useSession();
 
     const handleSignOut = async() => {
       try {
-        
+        await signOut();
       } catch (error) {
-        
+        console.log(error);
       }
     }
   return (
