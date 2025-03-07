@@ -15,6 +15,15 @@ const Header = () => {
   return (
     <div>
         <button onClick={handleSignOut}>Signout</button>
+
+        {session? (
+            <div>welcome</div>
+        ):(
+            <div>
+                <Link href="/login">Login</Link>
+                <Link href="/register">Register</Link>
+            </div>
+        )}
     </div>
   )
 }
