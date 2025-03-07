@@ -14,5 +14,10 @@ class ApiClient {
         "Content-Type": "application/json",
         ...headers,
       }
+      const response = await fetch(`/api${endpoint}`, {
+          method,
+          headers: defaultHeaders,
+          body: body ? JSON.stringify(body) : undefined,
+      })
     }
 }
