@@ -3,3 +3,12 @@ type FetchOptions = {
     body?: any;
     headers: Record<string, string>;
 }
+
+class ApiClient {
+    private async fetch<T>(
+        endpoint: string,
+        options: FetchOptions = {}
+    )Promise<T> {
+   
+    }
+}
