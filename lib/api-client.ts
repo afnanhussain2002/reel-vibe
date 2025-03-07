@@ -1,3 +1,5 @@
+import { IVideo } from "@/models/Video";
+
 type FetchOptions = {
     method: "GET" | "POST" | "PUT" | "DELETE";
     body?: any;
@@ -24,5 +26,9 @@ class ApiClient {
         throw new Error(await response.text());
       }
       return response.json();
+    }
+
+    async getVideos() {
+        return this.fetch<IVideo[]>("/video");
     }
 }
