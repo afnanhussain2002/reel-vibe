@@ -8,7 +8,7 @@ class ApiClient {
     private async fetch<T>(
         endpoint: string,
         options: FetchOptions = {}
-    )Promise<T> {
+    ):Promise<T> {
       const {method = "GET", body, headers = {}} = options;
       const defaultHeaders = {
         "Content-Type": "application/json",
