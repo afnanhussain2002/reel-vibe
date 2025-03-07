@@ -4,6 +4,10 @@ import { useSession } from 'next-auth/react'
 
 const Header = () => {
     const {data: session} = useSession();
+
+    const handleSignOut = async() => {
+     
+    }
   return (
     <div>Header</div>
   )
