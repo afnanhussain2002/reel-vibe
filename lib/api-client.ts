@@ -43,4 +43,6 @@ class ApiClient {
             body: videoData,
         });
     }
-}
+} 
+
+export const apiClient = new ApiClient();
