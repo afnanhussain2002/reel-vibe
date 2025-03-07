@@ -6,7 +6,11 @@ const Header = () => {
     const {data: session} = useSession();
 
     const handleSignOut = async() => {
-     
+      try {
+        
+      } catch (error) {
+        
+      }
     }
   return (
     <div>Header</div>
